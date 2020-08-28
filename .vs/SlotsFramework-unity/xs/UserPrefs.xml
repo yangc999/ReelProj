@@ -1,0 +1,80 @@
+﻿<Properties>
+  <MonoDevelop.Ide.ItemProperties.spine-unity-editor PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveCtrl.cs">
+    <Files>
+      <File FileName="Assets/Scripts/ReelController.cs" Line="36" Column="1" />
+      <File FileName="Assets/Scripts/SlotsController.cs" />
+      <File FileName="Assets/Scripts/SymbolsManager.cs" />
+      <File FileName="Assets/Scripts/AlignType.cs" />
+      <File FileName="Assets/Scripts/SymbolConfig.cs" />
+      <File FileName="Assets/Scripts/ReelConfig.cs" />
+      <File FileName="Assets/Scripts/AnimType.cs" />
+      <File FileName="Assets/Scripts/SlotsConfig.cs" />
+      <File FileName="Assets/Scripts/AnimCellController.cs" />
+      <File FileName="Assets/Scripts/CellController.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEUnit.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/ctrl/HUGEGameCtrl.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/HUGESlotsMgr.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/HUGEDataMgr.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveGear.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveConfig.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveBearing.cs" Line="467" Column="14" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEClippingView.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEVtem.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/machine/HUGEReelMgr.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/machine/HUGEReelAmiMgr.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/HUGEBottomBarLayerMgr.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/ctrl/HUGEConfig.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEVtemAmi.cs" />
+      <File FileName="Assets/Spine/Runtime/spine-unity/Components/SkeletonGraphic.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveCtrl.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="SlotsFramework-unity" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="HUGE" expanded="True">
+                    <Node name="core" expanded="True">
+                      <Node name="ctrl" expanded="True" />
+                      <Node name="struct" expanded="True">
+                        <Node name="drive" expanded="True">
+                          <Node name="HUGEDriveCtrl.cs" selected="True" />
+                        </Node>
+                        <Node name="machine" expanded="True" />
+                        <Node name="method" expanded="True" />
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+            <Node name="spine-unity" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="Spine" expanded="True">
+                  <Node name="Runtime" expanded="True">
+                    <Node name="spine-unity" expanded="True">
+                      <Node name="Components" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+            <Node name="spine-unity-editor" expanded="True">
+              <Node name="References" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <Debugger.DebugSourceFolders />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
