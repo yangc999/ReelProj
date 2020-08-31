@@ -14,6 +14,7 @@ public class ConfigData
     public List<HUGEUnit> ElementUnitList;
     public List<List<int>> ElementInitList;
     public List<List<int>> RollerList;
+    public List<List<int>> TrueStrips;
     public float RowWidth;
     public float ColHeight;
     public float LineWidth;

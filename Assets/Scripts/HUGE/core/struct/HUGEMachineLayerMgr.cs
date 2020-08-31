@@ -6,8 +6,7 @@ public class HUGEMachineLayerMgr : MonoBehaviour
 {
     public HUGEDataMgr DataMgr { get; set; }
     public HUGESlotsMgr SlotsCtrl { get; set; }
-
-    private HUGEDriveCtrl driveCtrl;
+    public HUGEDriveCtrl DriveCtrl { get; set; }
     private HUGEReelMgr reelMgr;
     private HUGEReelAmiMgr reelAmiMgr;
 
@@ -27,9 +26,9 @@ public class HUGEMachineLayerMgr : MonoBehaviour
     {
         var driveCtrlObj = new GameObject();
         driveCtrlObj.transform.parent = gameObject.transform;
-        driveCtrl = driveCtrlObj.AddComponent<HUGEDriveCtrl>();
-        driveCtrl.Delegate = this;
-        driveCtrl.InitData();
+        DriveCtrl = driveCtrlObj.AddComponent<HUGEDriveCtrl>();
+        DriveCtrl.Delegate = this;
+        DriveCtrl.InitData();
 
         var reelMgrObj = new GameObject();
         reelMgrObj.transform.parent = gameObject.transform;
@@ -46,23 +45,23 @@ public class HUGEMachineLayerMgr : MonoBehaviour
     
     public void DoAction()
     {
-        driveCtrl.DoAction();
+        DriveCtrl.DoAction();
         reelAmiMgr.ClearAmiCacheState();
     }
 
     public void StopAction()
     {
-        driveCtrl.StopAction();
+        DriveCtrl.StopAction();
     }
 
     public void QuickStopAction()
     {
-        driveCtrl.QuickStopAction();
+        DriveCtrl.QuickStopAction();
     }
 
     public void TurboModel(int idx, bool isTurbo)
     {
-        driveCtrl.TurboModel(idx, isTurbo);
+        DriveCtrl.TurboModel(idx, isTurbo);
     }
 
     // delegate
@@ -92,13 +91,13 @@ public class HUGEMachineLayerMgr : MonoBehaviour
     {
         reelMgr.RefreshNormalModel();
         reelAmiMgr.RefreshNormalModel();
-        driveCtrl.RefreshNormalModel();
+        DriveCtrl.RefreshNormalModel(DataMgr.Data.RcList);
     }
 
     public void RefreshWishModel()
     {
         reelMgr.RefreshWishModel();
         reelAmiMgr.RefreshWishModel();
-        driveCtrl.RefreshWishModel();
+        driveCtrl.RefreshWishModel(DataMgr.Data.RcListWish);
     }
 }

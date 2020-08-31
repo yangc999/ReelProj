@@ -1,6 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.ItemProperties.spine-unity-editor PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveCtrl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Spine/Runtime/spine-unity/Components/SkeletonGraphic.cs">
     <Files>
       <File FileName="Assets/Scripts/ReelController.cs" Line="36" Column="1" />
       <File FileName="Assets/Scripts/SlotsController.cs" />
@@ -12,22 +12,23 @@
       <File FileName="Assets/Scripts/SlotsConfig.cs" />
       <File FileName="Assets/Scripts/AnimCellController.cs" />
       <File FileName="Assets/Scripts/CellController.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEUnit.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEUnit.cs" Line="15" Column="40" />
       <File FileName="Assets/Scripts/HUGE/core/ctrl/HUGEGameCtrl.cs" />
       <File FileName="Assets/Scripts/HUGE/core/struct/HUGESlotsMgr.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/HUGEDataMgr.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/HUGEDataMgr.cs" Line="90" Column="21" />
       <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveGear.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveConfig.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveBearing.cs" Line="467" Column="14" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEClippingView.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEVtem.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/machine/HUGEReelMgr.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/machine/HUGEReelAmiMgr.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveConfig.cs" Line="5" Column="27" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveBearing.cs" Line="106" Column="34" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEClippingView.cs" Line="24" Column="1" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEVtem.cs" Line="14" Column="1" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/machine/HUGEReelMgr.cs" Line="77" Column="28" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/machine/HUGEReelAmiMgr.cs" Line="8" Column="1" />
       <File FileName="Assets/Scripts/HUGE/core/struct/HUGEBottomBarLayerMgr.cs" />
       <File FileName="Assets/Scripts/HUGE/core/ctrl/HUGEConfig.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEVtemAmi.cs" />
-      <File FileName="Assets/Spine/Runtime/spine-unity/Components/SkeletonGraphic.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveCtrl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEVtemAmi.cs" Line="121" Column="46" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveCtrl.cs" Line="45" Column="6" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/HUGEMachineLayerMgr.cs" Line="9" Column="49" />
+      <File FileName="Assets/Spine/Runtime/spine-unity/Components/SkeletonGraphic.cs" Line="49" Column="45" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -40,9 +41,7 @@
                     <Node name="core" expanded="True">
                       <Node name="ctrl" expanded="True" />
                       <Node name="struct" expanded="True">
-                        <Node name="drive" expanded="True">
-                          <Node name="HUGEDriveCtrl.cs" selected="True" />
-                        </Node>
+                        <Node name="drive" expanded="True" />
                         <Node name="machine" expanded="True" />
                         <Node name="method" expanded="True" />
                       </Node>
@@ -55,8 +54,11 @@
               <Node name="Assets" expanded="True">
                 <Node name="Spine" expanded="True">
                   <Node name="Runtime" expanded="True">
+                    <Node name="spine-csharp" expanded="True" />
                     <Node name="spine-unity" expanded="True">
-                      <Node name="Components" expanded="True" />
+                      <Node name="Components" expanded="True">
+                        <Node name="SkeletonGraphic.cs" selected="True" />
+                      </Node>
                     </Node>
                   </Node>
                 </Node>

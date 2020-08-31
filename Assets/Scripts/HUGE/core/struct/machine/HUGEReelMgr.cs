@@ -6,7 +6,7 @@ public class HUGEReelMgr : MonoBehaviour
 {
     public HUGEMachineLayerMgr MachineMgr { get; set; }
 
-    private ArrayList reelArr = new ArrayList();
+    private List<List<HUGEVtem>> reelArr = new List<List<HUGEVtem>>();
     private HUGEClippingView slotsLayer;
 
     // Start is called before the first frame update
@@ -23,9 +23,22 @@ public class HUGEReelMgr : MonoBehaviour
 
     private void InitReel()
     {
-        for (int i = 0; i < int.MaxValue; i++)
+        for (int i = 0; i < MachineMgr.DataMgr.Data.RcList.Count; i++)
         {
-            var reelItemArr = new List<GameObject>();
+            var gearList = MachineMgr.DriveCtrl.DearingInfoListByIdx(i);
+            var reelItemArr = new List<HUGEVtem>();
+            for (int j = 0; j < gearList.Count; j++)
+            {
+                var gear = gearList[j];
+                var slotsId = MachineMgr.DataMgr.DefaultSlotsByRC(i, j);
+                var unit = MachineMgr.DataMgr.ElementById(slotsId);
+                if (unit != null)
+                {
+                    var itemObj = new GameObject();
+                    var item = itemObj.AddComponent<HUGEVtem>();
+                    reelItemArr.Add(item);
+                }
+            }
             reelArr.Add(reelItemArr);
         }
     }
@@ -44,31 +57,57 @@ public class HUGEReelMgr : MonoBehaviour
 
     public void StripMove(int colIdx, List<HUGEDriveGear> cellList)
     {
-    
+        var reelItemArr = reelArr[colIdx];
+        foreach (var item in reelItemArr)
+        {
+            foreach (var cell in cellList)
+            {
+                if (item.TagIdx == cell.HocTag)
+                {
+                    item.SetZOrder(cell.HocTag);
+                    break;
+                }
+            }
+        }
     }
 
-    public void StripBegMove(int colIdx, int stopTag, List<int> showTagList)
+    public void StripBegStop(int colIdx, int stopTag, List<int> showTagList)
+    {
+        var reelColList = reelArr[colIdx];
+        var trueReelList = MachineMgr.DataMgr.Data.TrueStrips[colIdx];
+        for (int i = 0; i < trueReelList.Count; i++)
+        {
+            var trueSlotsId = trueReelList[i];
+            var showTag = showTagList[i];
+            foreach (var vtem in reelColList)
+            {
+                if (vtem.TagIdx == showTag)
+                {
+                    var unit = MachineMgr.DataMgr.ElementById(trueSlotsId);
+                    vtem.RefreshItemIcon(unit);
+                    break;
+                }
+            }
+        }
+    }
+
+    public void StripNearStop(int colIdx)
     {
 
     }
 
-    public void StripNearStop(int idx)
-    {
-
-    }
-
-    public void StripEndStop(int idx)
+    public void StripEndStop(int colIdx)
     {
 
     }
 
     public void RefreshNormalModel()
     {
-        slotsLayer.ChangeModel(, 0.0f, 0.0f);
+        slotsLayer.ChangeModel(MachineMgr.DataMgr.ReelClippingCfg(), 0.0f, 0.0f);
     }
 
     public void RefreshWishModel()
     {
-        slotsLayer.ChangeModel(, 0.0f, 0.0f);
+        slotsLayer.ChangeModel(MachineMgr.DataMgr.ReelClippingWishCfg(), 0.0f, 0.0f);
     }
 }

@@ -16,7 +16,7 @@ public class HUGEClippingView : MonoBehaviour
         
     }
 
-    public void ChangeModel(Object cfg, float addWidth, float addHeight)
+    public void ChangeModel(ReelConfig cfg, float addWidth, float addHeight)
     {
 
     }

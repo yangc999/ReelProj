@@ -23,12 +23,17 @@ public class HUGEReelAmiMgr : MonoBehaviour
 
     private void InitAmiReel()
     {
-        for (int i = 0; i < int.MaxValue; i++)
+        foreach (var unit in MachineMgr.DataMgr.Data.ElementUnitList)
         {
-            var amiObj = new GameObject();
-            amiObj.transform.parent = gameObject.transform;
-            var ami = amiObj.AddComponent<HUGEVtemAmi>();
-            amiCache.Add(ami);
+            for (int i = 0; i < MachineMgr.DataMgr.Data.Row*5; i++)
+            {
+                var amiObj = new GameObject();
+                amiObj.transform.parent = gameObject.transform;
+                var ami = amiObj.AddComponent<HUGEVtemAmi>();
+                ami.Init(unit, MachineMgr.DataMgr.Data.CellWidth, MachineMgr.DataMgr.Data.CellHeight);
+                ami.Show(false);
+                amiCache.Add(ami);
+            }
         }
     }
 
@@ -117,7 +122,7 @@ public class HUGEReelAmiMgr : MonoBehaviour
                     if (vtem.Unit.IsFeature())
                     {
                         vtem.Show(true);
-                        vtem.PlayAnimation();
+                        vtem.PlayAnimation(false, "ami1");
                     }
                 }
             }

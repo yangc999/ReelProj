@@ -15,7 +15,7 @@ public class HUGEUnit
         Type = SlotsElementType.Normal;
     }
 
-    public HUGEUnit(HUGEUnit unit)
+    public void Set(HUGEUnit unit)
     {
         Id = unit.Id;
         Num = unit.Num;

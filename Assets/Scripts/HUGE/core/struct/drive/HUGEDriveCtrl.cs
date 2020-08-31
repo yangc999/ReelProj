@@ -115,13 +115,14 @@ public class HUGEDriveCtrl : MonoBehaviour
         }
     }
 
-    public void DearingInfoListByIdx(int idx)
+    public List<HUGEDriveGear> DearingInfoListByIdx(int idx)
     {
         if (bearingList.Count != 0)
         {
             var bearing = bearingList[idx];
-            bearing.BearingList();
+            return bearing.BearingList();
         }
+        return null;
     }
 
     public void DearingCenterPosByIdx(int idx)
@@ -133,26 +134,26 @@ public class HUGEDriveCtrl : MonoBehaviour
         }
     }
 
-    public void RefreshNormalModel()
+    public void RefreshNormalModel(List<int> normalList)
     {
         if (bearingList.Count != 0)
         {
             for (int i = 0; i < bearingList.Count; i++)
             {
                 var bearing = bearingList[i];
-                bearing.RefreshShowGear();
+                bearing.RefreshShowGear(normalList[i]);
             }
         }
     }
 
-    public void RefreshWishModel()
+    public void RefreshWishModel(List<int> wishList)
     {
         if (bearingList.Count != 0)
         {
             for (int i = 0; i < bearingList.Count; i++)
             {
                 var bearing = bearingList[i];
-                bearing.RefreshShowGear();
+                bearing.RefreshShowGear(wishList[i]);
             }
         }
     }
