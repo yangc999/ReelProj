@@ -70,9 +70,10 @@ public class HUGEMachineLayerMgr : MonoBehaviour
 
     }
 
-    public void StripBegStop(int idx, int stopTag, List<int> showTagLis)
+    public void StripBegStop(int idx, int stopTag, List<int> showTagList)
     {
-
+        reelMgr.StripBegStop(idx, stopTag, showTagList);
+        reelAmiMgr.StripBegStop(idx, stopTag, showTagList, DataMgr.Data.TrueStrips);
     }
 
     public void StripNearStop(int idx)
@@ -85,6 +86,10 @@ public class HUGEMachineLayerMgr : MonoBehaviour
     {
         reelMgr.StripEndStop(idx);
         reelAmiMgr.StripEndStop(idx);
+        if (idx == DataMgr.Data.Col)
+        {
+            SlotsCtrl.AllStripEndStop();
+        }
     }
 
     public void RefreshNormalModel()
@@ -98,6 +103,6 @@ public class HUGEMachineLayerMgr : MonoBehaviour
     {
         reelMgr.RefreshWishModel();
         reelAmiMgr.RefreshWishModel();
-        driveCtrl.RefreshWishModel(DataMgr.Data.RcListWish);
+        DriveCtrl.RefreshWishModel(DataMgr.Data.RcListWish);
     }
 }

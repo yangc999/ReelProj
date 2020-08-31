@@ -9,12 +9,12 @@ public class ConfigData
     public HocViewType ViewType;
     public int Row;
     public int Col;
-    public List<int> RcList;
-    public List<int> RcListWish;
-    public List<HUGEUnit> ElementUnitList;
-    public List<List<int>> ElementInitList;
-    public List<List<int>> RollerList;
-    public List<List<int>> TrueStrips;
+    public List<int> RcList = new List<int>();
+    public List<int> RcListWish = new List<int>();
+    public List<HUGEUnit> ElementUnitList = new List<HUGEUnit>();
+    public List<List<int>> ElementInitList = new List<List<int>>();
+    public List<List<int>> RollerList = new List<List<int>>();
+    public List<List<int>> TrueStrips = new List<List<int>>();
     public float RowWidth;
     public float ColHeight;
     public float LineWidth;
@@ -27,7 +27,7 @@ public class ConfigData
 
 public class ReelConfig
 {
-    public List<int> RcList;
+    public List<int> RcList = new List<int>();
     public HocViewType RcType;
     public float RcLineWidth;
     public float RcItemWidth;
@@ -52,9 +52,32 @@ public class HUGEDataMgr : MonoBehaviour
         
     }
 
+    public void Init()
+    {
+        Data = new ConfigData();
+        BuildSlotsConfigData();
+    }
+
     public void BuildSlotsConfigData()
     {
-
+        Data.Id = ;
+        Data.Name = ;
+        Data.ViewType = ;
+        Data.Row = 3;
+        Data.Col = 5;
+        Data.RcList = ;
+        Data.CellWidth = 158.0f;
+        Data.CellHeight = 108.0f;
+        Data.CellMaxNum = 1;
+        for (int i = 0; i < max; i++)
+        {
+            var unit = new HUGEUnit();
+            Data.ElementUnitList.Add(unit);
+        }
+        Data.ViewAnimClipLeftAndRight = ;
+        Data.ViewAnimClipTopAndBottom = ;
+        Data.ElementInitList = ;
+        Data.RollerList = ;
     }
 
     public ReelConfig ReelClippingCfg()

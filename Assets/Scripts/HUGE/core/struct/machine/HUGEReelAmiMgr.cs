@@ -82,8 +82,9 @@ public class HUGEReelAmiMgr : MonoBehaviour
         }
     }
 
-    public void StripBegMove(int colIdx, int stopTag, List<int> showTagList)
+    public void StripBegStop(int colIdx, int stopTag, List<int> showTagList, List<List<int>> trueStrips)
     {
+        var trueList = MachineMgr.DataMgr.Data.TrueStrips[colIdx];
         if (amiCache.Count != 0)
         {
 
@@ -105,7 +106,14 @@ public class HUGEReelAmiMgr : MonoBehaviour
                 }
                 if (!inCache)
                 {
-
+                    var unit = MachineMgr.DataMgr.ElementById(slotsId);
+                    var amiObj = new GameObject();
+                    var ami = amiObj.AddComponent<HUGEVtemAmi>();
+                    ami.Init(unit, MachineMgr.DataMgr.Data.CellWidth, MachineMgr.DataMgr.Data.CellHeight);
+                    amiCache.Add(ami);
+                    ami.ColIdx = colIdx;
+                    ami.RowIdx = i;
+                    ami.ShowTag = showIdx;
                 }
             }
         }
