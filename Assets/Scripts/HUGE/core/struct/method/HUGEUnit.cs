@@ -6,7 +6,7 @@ public class HUGEUnit
     public int Id;
     public int Num;
     public SlotsElementType Type;
-    public ArrayList Ami = new ArrayList();
+    public List<string> Ami = new List<string>();
 
     public HUGEUnit()
     {

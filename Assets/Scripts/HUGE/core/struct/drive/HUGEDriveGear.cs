@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HUGEDriveGear : MonoBehaviour
+public class HUGEDriveGear
 {
     public int HocTag;
     public float HocWidth;
@@ -14,19 +14,7 @@ public class HUGEDriveGear : MonoBehaviour
     public int HocRow;
     public int HocCol;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Init();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void Init()
+    public HUGEDriveGear()
     {
         HocTag = 0;
         HocWidth = 0.0f;

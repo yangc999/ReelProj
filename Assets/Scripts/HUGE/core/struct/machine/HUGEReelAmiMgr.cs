@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(RectTransform))]
 public class HUGEReelAmiMgr : MonoBehaviour
 {
     public HUGEMachineLayerMgr MachineMgr { get; set; }
@@ -28,11 +29,12 @@ public class HUGEReelAmiMgr : MonoBehaviour
             for (int i = 0; i < MachineMgr.DataMgr.Data.Row*5; i++)
             {
                 var amiObj = new GameObject();
-                amiObj.transform.parent = gameObject.transform;
                 var ami = amiObj.AddComponent<HUGEVtemAmi>();
                 ami.Init(unit, MachineMgr.DataMgr.Data.CellWidth, MachineMgr.DataMgr.Data.CellHeight);
                 ami.Show(false);
                 amiCache.Add(ami);
+                var rt = amiObj.GetComponent<RectTransform>();
+                rt.SetParent(slotsAmiLayer.gameObject.GetComponent<RectTransform>(), false);
             }
         }
     }
@@ -42,9 +44,9 @@ public class HUGEReelAmiMgr : MonoBehaviour
         if (!slotsAmiLayer)
         {
             var slotsAmiLayerObj = new GameObject();
-            var rt = slotsAmiLayerObj.GetComponent<RectTransform>();
-            rt.transform.SetParent(gameObject.GetComponent<RectTransform>());
             slotsAmiLayer = slotsAmiLayerObj.AddComponent<HUGEClippingView>();
+            var rt = slotsAmiLayerObj.GetComponent<RectTransform>();
+            rt.SetParent(gameObject.GetComponent<RectTransform>(), false);
         }
         InitAmiReel();
     }

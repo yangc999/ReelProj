@@ -32,17 +32,7 @@ public enum HocBearingType
     HocOver, 
 }
 
-public class HUGEDriveConfig : MonoBehaviour
+public class HUGEDriveConfig
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

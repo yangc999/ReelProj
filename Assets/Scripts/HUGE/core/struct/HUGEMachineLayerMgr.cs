@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(RectTransform))]
 public class HUGEMachineLayerMgr : MonoBehaviour
 {
     public HUGEDataMgr DataMgr { get; set; }
@@ -9,6 +10,7 @@ public class HUGEMachineLayerMgr : MonoBehaviour
     public HUGEDriveCtrl DriveCtrl { get; set; }
     private HUGEReelMgr reelMgr;
     private HUGEReelAmiMgr reelAmiMgr;
+    private int touchIdx;
 
     // Start is called before the first frame update
     void Start()
@@ -19,28 +21,31 @@ public class HUGEMachineLayerMgr : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (DriveCtrl != null)
+        {
+            DriveCtrl.Update(Time.deltaTime);
+        }
     }
 
     private void Init()
     {
-        var driveCtrlObj = new GameObject();
-        driveCtrlObj.transform.parent = gameObject.transform;
-        DriveCtrl = driveCtrlObj.AddComponent<HUGEDriveCtrl>();
-        DriveCtrl.Delegate = this;
-        DriveCtrl.InitData();
+        DriveCtrl = new HUGEDriveCtrl(this);
+        DriveCtrl.InitData(DataMgr.Data);
 
         var reelMgrObj = new GameObject();
-        reelMgrObj.transform.parent = gameObject.transform;
         reelMgr = reelMgrObj.AddComponent<HUGEReelMgr>();
+        var reelMgrObjRt = reelMgrObj.GetComponent<RectTransform>();
+        reelMgrObjRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
         reelMgr.CreateSlotsLayer();
 
         var reelAmiMgrObj = new GameObject();
-        reelAmiMgrObj.transform.parent = gameObject.transform;
         reelAmiMgr = reelAmiMgrObj.AddComponent<HUGEReelAmiMgr>();
+        var reelAmiMgrObjRt = reelAmiMgrObj.GetComponent<RectTransform>();
+        reelAmiMgrObjRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
         reelAmiMgr.CreateSlotsAmiLayer();
 
         RefreshWishModel();
+        touchIdx = 1;
     }
     
     public void DoAction()
@@ -67,7 +72,8 @@ public class HUGEMachineLayerMgr : MonoBehaviour
     // delegate
     public void StripMove(int idx, List<HUGEDriveGear> cellList)
     {
-
+        reelMgr.StripMove(idx, cellList);
+        reelAmiMgr.StripMove(idx, cellList);
     }
 
     public void StripBegStop(int idx, int stopTag, List<int> showTagList)

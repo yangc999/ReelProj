@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(RectTransform))]
 public class HUGEGameCtrl : MonoBehaviour
 {
     private HUGEDataMgr dataMgr;
@@ -23,10 +24,11 @@ public class HUGEGameCtrl : MonoBehaviour
     private void Build()
     {
         var slots = new GameObject();
-        slots.transform.parent = gameObject.transform;
         slotsMgr = slots.AddComponent<HUGESlotsMgr>();
         slotsMgr.GameCtrl = this;
         slotsMgr.DataMgr = dataMgr;
+        var rt = slots.GetComponent<RectTransform>();
+        rt.SetParent(gameObject.GetComponent<RectTransform>(), false);
     }
 
     public void DoActionCtrl()

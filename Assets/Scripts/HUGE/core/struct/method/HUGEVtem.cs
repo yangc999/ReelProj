@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(RectTransform), typeof(Image))]
+[RequireComponent(typeof(RectTransform))]
 public class HUGEVtem : MonoBehaviour
 {
     public HUGEUnit Unit;
@@ -57,25 +57,29 @@ public class HUGEVtem : MonoBehaviour
         var localZorder = IconZOrder(Unit.Type) + zOrder + zord;
 
     }
-
     public void Show(bool visible)
     {
-        if (!icon)
+        if (icon)
         {
-            var imageObj = new GameObject();
-            icon = imageObj.AddComponent<Image>();
-        }
-        var name = IconName();
-        var spr = Resources.Load<Sprite>(name);
-        if (icon && spr)
-        {
-            icon.sprite = spr;
+            icon.gameObject.SetActive(visible);
         }
     }
 
     public void LoadItemIcon()
     {
-        var image = gameObject.GetComponent<Image>();
+        var name = IconName();
+        if (!icon)
+        {
+            var imageObj = new GameObject();
+            var rt = imageObj.AddComponent<RectTransform>();
+            rt.SetParent(gameObject.GetComponent<RectTransform>(), false);
+            icon = imageObj.AddComponent<Image>();
+        }
+        var spr = Resources.Load<Sprite>(name);
+        if (icon && spr)
+        {
+            icon.sprite = spr;
+        }
     }
 
     public string IconName()

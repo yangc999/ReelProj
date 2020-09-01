@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Spine.Unity;
 
+[RequireComponent(typeof(RectTransform))]
 public class HUGEVtemAmi : MonoBehaviour
 {
     public HUGEUnit Unit;

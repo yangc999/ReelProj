@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HUGEDriveBearing : MonoBehaviour
+public class HUGEDriveBearing
 {
     public HUGEDriveCtrl Delegate { get; set; }
 
@@ -38,7 +38,7 @@ public class HUGEDriveBearing : MonoBehaviour
     private bool HocUserStop;
     private bool HocAutoStop = true;
     private bool HocTurbo;
-    private List<HUGEDriveGear> HocGearList;
+    private List<HUGEDriveGear> HocGearList = new List<HUGEDriveGear>();
     public float HocShowVarStopTop;
     public float HocShowVarStopBottom;
     public float HocWishTop;
@@ -48,26 +48,24 @@ public class HUGEDriveBearing : MonoBehaviour
     public float HocReleaseDelayTime;
     public float HocReleaseMoveTime;
 
-    // Start is called before the first frame update
-    void Start()
+    public HUGEDriveBearing(HUGEDriveCtrl del)
     {
-        
+        Delegate = del;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update(float deltaTime)
     {
         if (BearingType == HocBearingType.HocOver)
         {
             return;
         }
-        HocReleaseDelayTime = HocReleaseDelayTime - Time.deltaTime;
+        HocReleaseDelayTime = HocReleaseDelayTime - deltaTime;
         if (HocReleaseDelayTime > 0)
         {
-            HocReleaseDelayTime = HocReleaseDelayTime - Time.deltaTime;
+            HocReleaseDelayTime = HocReleaseDelayTime - deltaTime;
             return;
         }
-        HocReleaseMoveTime = HocReleaseMoveTime - Time.deltaTime;
+        HocReleaseMoveTime = HocReleaseMoveTime - deltaTime;
         if (HocReleaseMoveTime > 0 && BearingType == HocBearingType.HocSpin)
         {
             Move();
@@ -93,7 +91,7 @@ public class HUGEDriveBearing : MonoBehaviour
             }
             if (BearingType == HocBearingType.HocStop)
             {
-                DoStop(Time.deltaTime);
+                DoStop(deltaTime);
             }
         }
     }
@@ -265,8 +263,7 @@ public class HUGEDriveBearing : MonoBehaviour
         var finalGearN = HocFinalGearN;
         for (int i = 0; i < finalGearN; i++)
         {
-            var gearObj = new GameObject();
-            var gear = gearObj.AddComponent<HUGEDriveGear>();
+            var gear = new HUGEDriveGear();
             HocGearList.Add(gear);
         }
     }
@@ -336,7 +333,7 @@ public class HUGEDriveBearing : MonoBehaviour
     {
         var isStop = false;
         var subDis = 0.0f;
-        if (HocStopTopGear)
+        if (HocStopTopGear != null)
         {
             isStop = true;
             subDis = HocStopTopGear.HocPosY - HocShowVarStopTop;
@@ -352,7 +349,7 @@ public class HUGEDriveBearing : MonoBehaviour
         else
         {
             MoveList(subDis);
-            if (Delegate)
+            if (Delegate != null)
             {
                 var showList = new List<int>();
                 for (int i = 0; i < HocShowVarGearN; i++)
@@ -398,12 +395,12 @@ public class HUGEDriveBearing : MonoBehaviour
                 HocStopDownDisAdd = HocStopDownDisAdd + HocDis;
             }
             MoveList(HocDis);
-            if (HocStopBottomGear)
+            if (HocStopBottomGear != null)
             {
                 if (HocStopBottomGear.HocPosY - HocShowVarStopBottom < 0)
                 {
                     HocStopBottomGear = null;
-                    if (Delegate)
+                    if (Delegate != null)
                     {
                         Delegate.StripNearStop(HocIdx);
                     }
@@ -424,7 +421,7 @@ public class HUGEDriveBearing : MonoBehaviour
         if (HocReleaseStopUpTime == 0)
         {
             BearingType = HocBearingType.HocOver;
-            if (Delegate)
+            if (Delegate != null)
             {
                 Delegate.StripEndStop(HocIdx);
             }
@@ -437,7 +434,7 @@ public class HUGEDriveBearing : MonoBehaviour
         {
             MoveCell(item, dis);
         }
-        if (Delegate)
+        if (Delegate != null)
         {
             Delegate.StripMove(HocIdx, HocGearList);
         }

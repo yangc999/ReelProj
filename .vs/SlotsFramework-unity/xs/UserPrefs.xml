@@ -1,7 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.ItemProperties.spine-unity-editor PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Spine/Runtime/spine-unity/Components/SkeletonGraphic.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/HUGE/core/struct/HUGEMachineLayerMgr.cs">
     <Files>
+      <File FileName="Assets/Scripts/SlotsConfig.cs" Line="2" Column="14" IsPinned="True" />
       <File FileName="Assets/Scripts/ReelController.cs" Line="36" Column="1" />
       <File FileName="Assets/Scripts/SlotsController.cs" />
       <File FileName="Assets/Scripts/SymbolsManager.cs" />
@@ -9,26 +10,25 @@
       <File FileName="Assets/Scripts/SymbolConfig.cs" />
       <File FileName="Assets/Scripts/ReelConfig.cs" />
       <File FileName="Assets/Scripts/AnimType.cs" />
-      <File FileName="Assets/Scripts/SlotsConfig.cs" />
       <File FileName="Assets/Scripts/AnimCellController.cs" />
       <File FileName="Assets/Scripts/CellController.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEUnit.cs" Line="15" Column="40" />
-      <File FileName="Assets/Scripts/HUGE/core/ctrl/HUGEGameCtrl.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/HUGESlotsMgr.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/HUGEDataMgr.cs" Line="90" Column="21" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveGear.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveConfig.cs" Line="5" Column="27" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveBearing.cs" Line="106" Column="34" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEClippingView.cs" Line="24" Column="1" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEVtem.cs" Line="14" Column="1" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/machine/HUGEReelMgr.cs" Line="77" Column="28" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/machine/HUGEReelAmiMgr.cs" Line="8" Column="1" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/HUGEBottomBarLayerMgr.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/ctrl/HUGEConfig.cs" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEVtemAmi.cs" Line="121" Column="46" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveCtrl.cs" Line="45" Column="6" />
-      <File FileName="Assets/Scripts/HUGE/core/struct/HUGEMachineLayerMgr.cs" Line="9" Column="49" />
-      <File FileName="Assets/Spine/Runtime/spine-unity/Components/SkeletonGraphic.cs" Line="49" Column="45" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEUnit.cs" Line="25" Column="30" />
+      <File FileName="Assets/Scripts/HUGE/core/ctrl/HUGEGameCtrl.cs" Line="15" Column="17" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/HUGESlotsMgr.cs" Line="11" Column="32" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/HUGEDataMgr.cs" Line="30" Column="47" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveGear.cs" Line="20" Column="25" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveConfig.cs" Line="34" Column="1" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveBearing.cs" Line="424" Column="33" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEClippingView.cs" Line="5" Column="42" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEVtem.cs" Line="53" Column="6" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/machine/HUGEReelMgr.cs" Line="69" Column="1" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/machine/HUGEReelAmiMgr.cs" Line="5" Column="1" />
+      <File FileName="Assets/Scripts/HUGE/core/ctrl/HUGEConfig.cs" Line="76" Column="12" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/method/HUGEVtemAmi.cs" Line="7" Column="42" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/drive/HUGEDriveCtrl.cs" Line="21" Column="14" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/HUGEMachineLayerMgr.cs" Line="35" Column="43" />
+      <File FileName="Assets/Spine/Runtime/spine-unity/Components/SkeletonGraphic.cs" />
+      <File FileName="Assets/Scripts/HUGE/core/struct/HUGEBottomBarLayerMgr.cs" Line="5" Column="42" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -44,6 +44,7 @@
                         <Node name="drive" expanded="True" />
                         <Node name="machine" expanded="True" />
                         <Node name="method" expanded="True" />
+                        <Node name="HUGEMachineLayerMgr.cs" selected="True" />
                       </Node>
                     </Node>
                   </Node>
@@ -56,9 +57,7 @@
                   <Node name="Runtime" expanded="True">
                     <Node name="spine-csharp" expanded="True" />
                     <Node name="spine-unity" expanded="True">
-                      <Node name="Components" expanded="True">
-                        <Node name="SkeletonGraphic.cs" selected="True" />
-                      </Node>
+                      <Node name="Components" expanded="True" />
                     </Node>
                   </Node>
                 </Node>
@@ -66,6 +65,17 @@
             </Node>
             <Node name="spine-unity-editor" expanded="True">
               <Node name="References" expanded="True" />
+              <Node name="Assets" expanded="True">
+                <Node name="Spine" expanded="True">
+                  <Node name="Editor" expanded="True">
+                    <Node name="spine-unity" expanded="True">
+                      <Node name="Editor" expanded="True">
+                        <Node name="Utility" expanded="True" />
+                      </Node>
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>

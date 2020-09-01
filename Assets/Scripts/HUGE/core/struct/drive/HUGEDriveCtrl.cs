@@ -2,34 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HUGEDriveCtrl : MonoBehaviour
+public class HUGEDriveCtrl
 {
     public HUGEMachineLayerMgr Delegate { get; set; }
 
     private List<HUGEDriveBearing> bearingList = new List<HUGEDriveBearing>();
 
-    // Start is called before the first frame update
-    void Start()
+    public HUGEDriveCtrl(HUGEMachineLayerMgr del)
     {
-
+        Delegate = del;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update(float deltaTime)
     {
-        
-    }
-
-    public void InitData()
-    {
-        for (int i = 0; i < int.MaxValue; i++)
+        if (bearingList.Count != 0)
         {
-            var bearingObj = new GameObject();
-            bearingObj.transform.parent = gameObject.transform;
-            var bearing = bearingObj.AddComponent<HUGEDriveBearing>();
-            bearing.Delegate = this;
-            bearing.InitDearingData();
-            bearing.InitPosAndZorder();
+            foreach (var bearing in bearingList)
+            {
+                bearing.Update(deltaTime);
+            }
+        }
+    }
+
+    public void InitData(ConfigData slotsData)
+    {
+        for (int i = 0; i < slotsData.RcList.Count; i++)
+        {
+            var j = slotsData.RcList[i];
+            var wish = slotsData.RcListWish[i];
+            var bearing = new HUGEDriveBearing(this);
+            bearing.InitDearingData(slotsData.ViewType, i, j, wish, slotsData.Row, slotsData.CellMaxNum, slotsData.CellWidth, slotsData.CellHeight);
+            bearing.InitPosAndZorder(i, slotsData.LineWidth);
             bearingList.Add(bearing);
         }
     }

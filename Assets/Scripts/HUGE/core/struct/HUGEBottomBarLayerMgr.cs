@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(RectTransform))]
 public class HUGEBottomBarLayerMgr : MonoBehaviour
 {
     public HUGESlotsMgr Delegate { get; set; }
@@ -18,7 +19,7 @@ public class HUGEBottomBarLayerMgr : MonoBehaviour
         
     }
 
-    public void RefreshSpinBtnType()
+    public void RefreshSpinBtnType(SpinBtnType stype, bool enable)
     {
 
     }

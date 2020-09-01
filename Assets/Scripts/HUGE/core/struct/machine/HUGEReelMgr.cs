@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(RectTransform))]
 public class HUGEReelMgr : MonoBehaviour
 {
     public HUGEMachineLayerMgr MachineMgr { get; set; }
@@ -36,6 +37,11 @@ public class HUGEReelMgr : MonoBehaviour
                 {
                     var itemObj = new GameObject();
                     var item = itemObj.AddComponent<HUGEVtem>();
+                    item.Init(unit, MachineMgr.DataMgr.Data.CellWidth, MachineMgr.DataMgr.Data.CellHeight);
+                    item.TagIdx = gear.HocTag;
+                    item.SetZOrder(gear.HocZOrder);
+                    var rt = itemObj.GetComponent<RectTransform>();
+                    rt.SetParent(slotsLayer.gameObject.GetComponent<RectTransform>(), false);
                     reelItemArr.Add(item);
                 }
             }
@@ -48,9 +54,9 @@ public class HUGEReelMgr : MonoBehaviour
         if (!slotsLayer)
         {
             var slotsLayerObj = new GameObject();
-            var rt = slotsLayerObj.GetComponent<RectTransform>();
-            rt.transform.SetParent(gameObject.GetComponent<RectTransform>());
             slotsLayer = slotsLayerObj.AddComponent<HUGEClippingView>();
+            var rt = slotsLayerObj.GetComponent<RectTransform>();
+            rt.SetParent(gameObject.GetComponent<RectTransform>(), false);
         }
         InitReel();
     }
@@ -65,6 +71,7 @@ public class HUGEReelMgr : MonoBehaviour
                 if (item.TagIdx == cell.HocTag)
                 {
                     item.SetZOrder(cell.HocTag);
+
                     break;
                 }
             }

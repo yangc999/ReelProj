@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(RectTransform))]
 public class HUGESlotsMgr : MonoBehaviour
 {
     public HUGEGameCtrl GameCtrl { get; set; }
@@ -9,12 +10,12 @@ public class HUGESlotsMgr : MonoBehaviour
 
     private HUGEMachineLayerMgr machineLayerMgr;
     private HUGEBottomBarLayerMgr bottomBarLayerMgr;
-    private SlotsCtrlType slotsCtrlType;
+    private SlotsCtrlType slotsCtrlType = SlotsCtrlType.SlotsOver;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Build();
     }
 
     // Update is called once per frame
@@ -24,28 +25,49 @@ public class HUGESlotsMgr : MonoBehaviour
     }
 
     // btn spin
-    public void DelegateBtnSpinAction()
+    public void DelegateBtnSpinAction(SpinBtnType stype)
     {
-
+        switch (stype)
+        {
+            case SpinBtnType.BtnSpin:
+                {
+                    machineLayerMgr.DoAction();
+                    bottomBarLayerMgr.RefreshSpinBtnType(SpinBtnType.BtnStop, true);
+                }
+                break;
+            case SpinBtnType.BtnStop:
+                {
+                    machineLayerMgr.QuickStopAction();
+                    bottomBarLayerMgr.RefreshSpinBtnType(SpinBtnType.BtnSpin, false);
+                }
+                break;
+            case SpinBtnType.BtnFreeSpin:
+            case SpinBtnType.BtnAuto:
+                break;
+            default:
+                break;
+        }
     }
 
     public void AllStripEndStop()
     {
-        bottomBarLayerMgr.RefreshSpinBtnType();
+        bottomBarLayerMgr.RefreshSpinBtnType(SpinBtnType.BtnSpin, true);
     }
 
     // build
     private void Build()
     {
         var machineLayer = new GameObject();
-        machineLayer.transform.parent = gameObject.transform;
         machineLayerMgr = machineLayer.AddComponent<HUGEMachineLayerMgr>();
         machineLayerMgr.SlotsCtrl = this;
+        var machineLayerRt = machineLayer.GetComponent<RectTransform>();
+        machineLayerRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
 
         var bottomBarLayer = new GameObject();
-        bottomBarLayer.transform.parent = gameObject.transform;
         bottomBarLayerMgr = bottomBarLayer.AddComponent<HUGEBottomBarLayerMgr>();
         bottomBarLayerMgr.Delegate = this;
+        var bottomBarLayerRt = bottomBarLayer.GetComponent<RectTransform>();
+        bottomBarLayerRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
     }
 
 
