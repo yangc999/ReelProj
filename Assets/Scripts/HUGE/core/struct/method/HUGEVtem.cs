@@ -38,6 +38,11 @@ public class HUGEVtem : MonoBehaviour
         defaultIdx = 0;
         zOrder = 0;
         size = new Vector2(width, height);
+        var rt = gameObject.GetComponent<RectTransform>();
+        rt.anchorMin = new Vector2(0.0f, 0.0f);
+        rt.anchorMax = new Vector2(0.0f, 0.0f);
+        rt.pivot = new Vector2(0.5f, 0.5f);
+        rt.sizeDelta = size;
         LoadItemIcon();
         SetZOrder(0);
     }
@@ -71,25 +76,31 @@ public class HUGEVtem : MonoBehaviour
         if (!icon)
         {
             var imageObj = new GameObject();
-            var rt = imageObj.AddComponent<RectTransform>();
-            rt.SetParent(gameObject.GetComponent<RectTransform>(), false);
+            var imageObjRt = imageObj.AddComponent<RectTransform>();
+            imageObjRt.anchorMin = new Vector2(0.5f, 0.5f);
+            imageObjRt.anchorMax = new Vector2(0.5f, 0.5f);
+            imageObjRt.pivot = new Vector2(0.5f, 0.5f);
+            imageObjRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
             icon = imageObj.AddComponent<Image>();
         }
+        var rt = icon.gameObject.GetComponent<RectTransform>();
+        rt.localPosition = IconPos();
         var spr = Resources.Load<Sprite>(name);
         if (icon && spr)
         {
             icon.sprite = spr;
+            icon.SetNativeSize();
         }
     }
 
     public string IconName()
     {
-        return "slots_" + Unit.Id + ".png";
+        return "Resources/Pic/" + "slots_" + Unit.Id + ".png";
     }
 
-    public Vector2 IconPos()
+    public Vector3 IconPos()
     {
-        return new Vector2(0.0f, 0.0f);
+        return new Vector3(width*0.5f, height*0.5f, 0.0f);
     }
 
     public SlotsElementZOrder IconZOrder(SlotsElementType ntype, int unitNum = 0)

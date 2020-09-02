@@ -10,6 +10,14 @@ public class HUGEReelMgr : MonoBehaviour
     private List<List<HUGEVtem>> reelArr = new List<List<HUGEVtem>>();
     private HUGEClippingView slotsLayer;
 
+    void Awake()
+    {
+        var rt = gameObject.GetComponent<RectTransform>();
+        rt.anchorMin = new Vector2(0.0f, 0.0f);
+        rt.anchorMax = new Vector2(0.0f, 0.0f);
+        rt.pivot = new Vector2(0.0f, 0.0f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +50,7 @@ public class HUGEReelMgr : MonoBehaviour
                     item.SetZOrder(gear.HocZOrder);
                     var rt = itemObj.GetComponent<RectTransform>();
                     rt.SetParent(slotsLayer.gameObject.GetComponent<RectTransform>(), false);
+                    rt.localPosition = new Vector3(gear.HocPosX, gear.HocPosY, 0.0f);
                     reelItemArr.Add(item);
                 }
             }
@@ -55,8 +64,13 @@ public class HUGEReelMgr : MonoBehaviour
         {
             var slotsLayerObj = new GameObject();
             slotsLayer = slotsLayerObj.AddComponent<HUGEClippingView>();
+            slotsLayer.Init(MachineMgr.DataMgr.ReelClippingCfg());
             var rt = slotsLayerObj.GetComponent<RectTransform>();
             rt.SetParent(gameObject.GetComponent<RectTransform>(), false);
+            Canvas canvas = FindObjectOfType<Canvas>();
+            float h = canvas.GetComponent<RectTransform>().rect.height;
+            float w = canvas.GetComponent<RectTransform>().rect.width;
+            rt.localPosition = new Vector3(w * 0.5f, h * 0.5f, 0.0f);
         }
         InitReel();
     }
@@ -71,7 +85,8 @@ public class HUGEReelMgr : MonoBehaviour
                 if (item.TagIdx == cell.HocTag)
                 {
                     item.SetZOrder(cell.HocTag);
-
+                    var rt = item.gameObject.GetComponent<RectTransform>();
+                    rt.localPosition = new Vector3(cell.HocPosX, cell.HocPosY, 0.0f);
                     break;
                 }
             }

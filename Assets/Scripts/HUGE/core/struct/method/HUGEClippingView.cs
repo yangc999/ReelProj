@@ -17,6 +17,17 @@ public class HUGEClippingView : MonoBehaviour
         
     }
 
+    public void Init(ReelConfig cfg, float addWidth = 0.0f, float addHeight = 0.0f)
+    {
+        var rt = gameObject.GetComponent<RectTransform>();
+        var size = new Vector2(cfg.RcWidth, cfg.RcHeight);
+        rt.sizeDelta = size;
+        rt.anchorMin = new Vector2(0.0f, 0.0f);
+        rt.anchorMax = new Vector2(0.0f, 0.0f);
+        rt.pivot = new Vector2(0.5f, 0.5f);
+        ChangeModel(cfg, addWidth, addHeight);
+    }
+
     public void ChangeModel(ReelConfig cfg, float addWidth, float addHeight)
     {
 

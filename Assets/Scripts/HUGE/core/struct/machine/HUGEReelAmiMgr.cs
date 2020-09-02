@@ -10,6 +10,14 @@ public class HUGEReelAmiMgr : MonoBehaviour
     private List<HUGEVtemAmi> amiCache = new List<HUGEVtemAmi>();
     private HUGEClippingView slotsAmiLayer;
 
+    void Awake()
+    {
+        var rt = gameObject.GetComponent<RectTransform>();
+        rt.anchorMin = new Vector2(0.0f, 0.0f);
+        rt.anchorMax = new Vector2(0.0f, 0.0f);
+        rt.pivot = new Vector2(0.0f, 0.0f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,8 +53,13 @@ public class HUGEReelAmiMgr : MonoBehaviour
         {
             var slotsAmiLayerObj = new GameObject();
             slotsAmiLayer = slotsAmiLayerObj.AddComponent<HUGEClippingView>();
+            slotsAmiLayer.Init(MachineMgr.DataMgr.ReelClippingCfg(), 50.0f, 50.0f);
             var rt = slotsAmiLayerObj.GetComponent<RectTransform>();
             rt.SetParent(gameObject.GetComponent<RectTransform>(), false);
+            Canvas canvas = FindObjectOfType<Canvas>();
+            float h = canvas.GetComponent<RectTransform>().rect.height;
+            float w = canvas.GetComponent<RectTransform>().rect.width;
+            rt.localPosition = new Vector3(w*0.5f, h*0.5f, 0.0f);
         }
         InitAmiReel();
     }

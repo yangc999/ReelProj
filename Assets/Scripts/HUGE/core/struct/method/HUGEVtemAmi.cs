@@ -39,6 +39,11 @@ public class HUGEVtemAmi : MonoBehaviour
         width = nWidth;
         height = nHeight;
         size = new Vector2(width, height);
+        var rt = gameObject.GetComponent<RectTransform>();
+        rt.anchorMin = new Vector2(0.0f, 0.0f);
+        rt.anchorMax = new Vector2(0.0f, 0.0f);
+        rt.pivot = new Vector2(0.5f, 0.5f);
+        rt.sizeDelta = size;
         hasAmi = true;
         if (Unit.Ami.Count == 0)
         {
@@ -137,12 +142,12 @@ public class HUGEVtemAmi : MonoBehaviour
 
     public string AmiPath()
     {
-        return;
+        return "Resources/Spine/" + "slots_" + Unit.Id + ".png";
     }
 
     public string ImageName()
     {
-        return;
+        return "Resources/Pic/" + "slots_" + Unit.Id + ".png";
     }
 
     public Vector2 AmiPos()

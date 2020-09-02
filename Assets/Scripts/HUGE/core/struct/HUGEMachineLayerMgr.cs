@@ -12,6 +12,14 @@ public class HUGEMachineLayerMgr : MonoBehaviour
     private HUGEReelAmiMgr reelAmiMgr;
     private int touchIdx;
 
+    void Awake()
+    {
+        var rt = gameObject.GetComponent<RectTransform>();
+        rt.anchorMin = new Vector2(0.0f, 0.0f);
+        rt.anchorMax = new Vector2(0.0f, 0.0f);
+        rt.pivot = new Vector2(0.0f, 0.0f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

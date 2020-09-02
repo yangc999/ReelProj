@@ -12,6 +12,14 @@ public class HUGESlotsMgr : MonoBehaviour
     private HUGEBottomBarLayerMgr bottomBarLayerMgr;
     private SlotsCtrlType slotsCtrlType = SlotsCtrlType.SlotsOver;
 
+    void Awake()
+    {
+        var rt = gameObject.GetComponent<RectTransform>();
+        rt.anchorMin = new Vector2(0.0f, 0.0f);
+        rt.anchorMax = new Vector2(0.0f, 0.0f);
+        rt.pivot = new Vector2(0.0f, 0.0f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,12 +70,14 @@ public class HUGESlotsMgr : MonoBehaviour
         machineLayerMgr.SlotsCtrl = this;
         var machineLayerRt = machineLayer.GetComponent<RectTransform>();
         machineLayerRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
+        machineLayerRt.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
         var bottomBarLayer = new GameObject();
         bottomBarLayerMgr = bottomBarLayer.AddComponent<HUGEBottomBarLayerMgr>();
         bottomBarLayerMgr.Delegate = this;
         var bottomBarLayerRt = bottomBarLayer.GetComponent<RectTransform>();
         bottomBarLayerRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
+        bottomBarLayerRt.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
 
