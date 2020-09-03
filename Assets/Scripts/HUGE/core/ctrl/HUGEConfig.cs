@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SlotsCtrlType
+public enum SlotsCtrlType : int
 {
     SlotsStart = 0, 
     SlotsResult, 
@@ -11,7 +11,7 @@ public enum SlotsCtrlType
     SlotsOver, 
 }
 
-public enum ViewZOrder
+public enum ViewZOrder : int
 {
     BgOrder = 1000, 
     ReelOrder = 2000, 
@@ -23,7 +23,7 @@ public enum ViewZOrder
     ResultOrder = 8000, 
 }
 
-public enum SlotsWinType
+public enum SlotsWinType : int
 {
     Normal = 0, 
     BigWin = 1, 
@@ -32,21 +32,21 @@ public enum SlotsWinType
     EpicWin = 4, 
 }
 
-public enum SlotsFeatureState
+public enum SlotsFeatureState : int
 {
     FWait = 0,
     FProc = 1,
     FFinish = 2, 
 }
 
-public enum SlotsRCType
+public enum SlotsRCType : int
 {
     Center = 0,
     Top = 1,
     Bottom = 2, 
 }
 
-public enum SlotsElementType
+public enum SlotsElementType : int
 {
     Normal = 0, 
     Important = 1, 
@@ -59,7 +59,7 @@ public enum SlotsElementType
     ScatterXXXX = 8, 
 }
 
-public enum SlotsElementZOrder
+public enum SlotsElementZOrder : int
 {
     Null = 0, 
     Normal = 1, 
@@ -70,7 +70,7 @@ public enum SlotsElementZOrder
     Max = 71, 
 }
 
-public enum SpinBtnType
+public enum SpinBtnType : int
 {
     BtnNull = -1, 
     BtnSpin = 0, 

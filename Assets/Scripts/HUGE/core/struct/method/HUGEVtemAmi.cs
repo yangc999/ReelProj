@@ -19,6 +19,7 @@ public class HUGEVtemAmi : MonoBehaviour
     private bool hasAmi;
     private GameObject rootNode;
     private SkeletonGraphic ami;
+    private Image icon;
 
     // Start is called before the first frame update
     void Start()
@@ -119,6 +120,12 @@ public class HUGEVtemAmi : MonoBehaviour
         if (!rootNode)
         {
             rootNode = new GameObject();
+            var rootRt = rootNode.AddComponent<RectTransform>();
+            rootRt.anchorMin = new Vector2(0.5f, 0.5f);
+            rootRt.anchorMax = new Vector2(0.5f, 0.5f);
+            rootRt.pivot = new Vector2(0.5f, 0.5f);
+            rootRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
+            rootRt.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
         }
         if (hasAmi)
         {
@@ -127,7 +134,11 @@ public class HUGEVtemAmi : MonoBehaviour
             ami = amiObj.AddComponent<SkeletonGraphic>();
             if (ami)
             {
-                ami.
+                var rt = ami.GetComponent<RectTransform>();
+                rt.anchorMin = new Vector2(0.5f, 0.5f);
+                rt.anchorMax = new Vector2(0.5f, 0.5f);
+                rt.pivot = new Vector2(0.5f, 0.5f);
+                rt.SetParent(rootNode.GetComponent<RectTransform>(), false);
             }
         }
         else
@@ -142,17 +153,17 @@ public class HUGEVtemAmi : MonoBehaviour
 
     public string AmiPath()
     {
-        return "Resources/Spine/" + "slots_" + Unit.Id + ".png";
+        return "Spine/" + "slots_" + Unit.Id;
     }
 
     public string ImageName()
     {
-        return "Resources/Pic/" + "slots_" + Unit.Id + ".png";
+        return "Pic/" + "slots_" + Unit.Id;
     }
 
-    public Vector2 AmiPos()
+    public Vector3 AmiPos()
     {
-        return new Vector2(0.0f, 0.0f);
+        return new Vector3(0.0f, 0.0f, 0.0f);
     }
 
     public SlotsElementZOrder IconZOrder(SlotsElementType ntype, int unitNum = 0)

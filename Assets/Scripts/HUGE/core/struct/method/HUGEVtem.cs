@@ -15,7 +15,6 @@ public class HUGEVtem : MonoBehaviour
     private Vector2 size;
     private Image icon;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -95,7 +94,7 @@ public class HUGEVtem : MonoBehaviour
 
     public string IconName()
     {
-        return "Resources/Pic/" + "slots_" + Unit.Id + ".png";
+        return "Pic/" + "slots_" + Unit.Id;
     }
 
     public Vector3 IconPos()

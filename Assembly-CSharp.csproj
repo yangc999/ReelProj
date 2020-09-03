@@ -286,6 +286,7 @@
      <Compile Include="Assets\Scripts\HUGE\core\struct\HUGEMachineLayerMgr.cs" />
      <Compile Include="Assets\FairyGUI\Scripts\Core\HitTest\PixelHitTest.cs" />
      <Compile Include="Assets\FairyGUI\Examples\Basics\BasicsMain.cs" />
+     <Compile Include="Assets\Scripts\HUGE\core\struct\HUGESlotsData.cs" />
      <None Include="Assets\Spine\version.txt" />
      <None Include="Assets\Coffee\UIExtensions\SoftMaskForUGUI\SoftMask.cginc" />
      <None Include="Assets\FairyGUI\ReadMe - 4.0.1.txt" />

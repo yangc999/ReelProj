@@ -1,10 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(RectTransform))]
+[RequireComponent(typeof(RectTransform), typeof(Image), typeof(Mask))]
 public class HUGEClippingView : MonoBehaviour
 {
+    void Awake()
+    {
+        var image = gameObject.GetComponent<Image>();
+        image.sprite = Resources.Load<Sprite>("Pic/Untitled");
+    }
+
     // Start is called before the first frame update
     void Start()
     {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class ConfigData
 {
     public int Id;
-    public string Name;
+    public string Name = "";
     public HocViewType ViewType;
     public int Row;
     public int Col;
@@ -60,24 +60,31 @@ public class HUGEDataMgr : MonoBehaviour
 
     public void BuildSlotsConfigData()
     {
-        Data.Id = ;
-        Data.Name = ;
-        Data.ViewType = ;
+        var config = Resources.Load<HUGESlotsData>("");
+        Data.Id = config.slotsId;
+        Data.Name = config.slotsName;
+        Data.ViewType = config.viewAlignmentType;
         Data.Row = 3;
         Data.Col = 5;
-        Data.RcList = ;
-        Data.CellWidth = 158.0f;
-        Data.CellHeight = 108.0f;
+        Data.RcList = config.rcList;
+        Data.RcListWish = config.rcWishList;
+        Data.CellWidth = config.viewWidth;
+        Data.CellHeight = config.viewHeight;
+        Data.LineWidth = config.viewLineWidth;
         Data.CellMaxNum = 1;
-        for (int i = 0; i < max; i++)
+        foreach (var item in config.elementArr)
         {
             var unit = new HUGEUnit();
+            unit.Id = item.id;
+            unit.Num = item.num;
+            unit.Type = item.type;
+            unit.Ami = item.ami;
             Data.ElementUnitList.Add(unit);
         }
-        Data.ViewAnimClipLeftAndRight = ;
-        Data.ViewAnimClipTopAndBottom = ;
-        Data.ElementInitList = ;
-        Data.RollerList = ;
+        Data.ViewAnimClipLeftAndRight = config.viewAnimClipLeftAndRight;
+        Data.ViewAnimClipTopAndBottom = config.viewAnimClipTopAndBottom;
+        Data.ElementInitList = config.initArr;
+        Data.RollerList = config.rollerArr;
     }
 
     public ReelConfig ReelClippingCfg()

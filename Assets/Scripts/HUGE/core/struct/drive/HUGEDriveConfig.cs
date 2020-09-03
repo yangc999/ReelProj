@@ -17,14 +17,14 @@ public static class HocAmi
     public const float HocQuickStopTimeParameter = 2.0f;
 }
 
-public enum HocViewType
+public enum HocViewType : int
 {
     HocCenter = 0,
     HocTop,
     HocBottom, 
 }
 
-public enum HocBearingType
+public enum HocBearingType : int
 {
     HocSpin = 0,
     HocWill, 
