@@ -29,6 +29,7 @@ public class HUGEVtem : MonoBehaviour
 
     public void Init(HUGEUnit unit, float nWidth, float nHeight)
     {
+        gameObject.name = "Vtem";
         Unit = new HUGEUnit();
         Unit.Set(unit);
         width = nWidth;
@@ -72,11 +73,13 @@ public class HUGEVtem : MonoBehaviour
 
     public void LoadItemIcon()
     {
+        Debug.Log(string.Format("Name:{0}", gameObject.name));
         var name = IconName();
         Debug.Log(string.Format("IconName:{0}", name));
         if (!icon)
         {
             var imageObj = new GameObject();
+            imageObj.name = "icon";
             var imageObjRt = imageObj.AddComponent<RectTransform>();
             imageObjRt.anchorMin = new Vector2(0.5f, 0.5f);
             imageObjRt.anchorMax = new Vector2(0.5f, 0.5f);

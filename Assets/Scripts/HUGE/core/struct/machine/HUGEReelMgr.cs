@@ -16,6 +16,7 @@ public class HUGEReelMgr : MonoBehaviour
         rt.anchorMin = new Vector2(0.0f, 0.0f);
         rt.anchorMax = new Vector2(0.0f, 0.0f);
         rt.pivot = new Vector2(0.0f, 0.0f);
+        gameObject.name = "ReelMgr";
     }
 
     // Start is called before the first frame update
@@ -45,12 +46,12 @@ public class HUGEReelMgr : MonoBehaviour
                 {
                     var itemObj = new GameObject();
                     var item = itemObj.AddComponent<HUGEVtem>();
-                    item.Init(unit, MachineMgr.DataMgr.Data.CellWidth, MachineMgr.DataMgr.Data.CellHeight);
-                    item.TagIdx = gear.HocTag;
-                    item.SetZOrder(gear.HocZOrder);
                     var rt = itemObj.GetComponent<RectTransform>();
                     rt.SetParent(slotsLayer.gameObject.GetComponent<RectTransform>(), false);
                     rt.localPosition = new Vector3(gear.HocPosX, gear.HocPosY, 0.0f);
+                    item.Init(unit, MachineMgr.DataMgr.Data.CellWidth, MachineMgr.DataMgr.Data.CellHeight);
+                    item.TagIdx = gear.HocTag;
+                    item.SetZOrder(gear.HocZOrder);
                     reelItemArr.Add(item);
                 }
             }
@@ -65,13 +66,14 @@ public class HUGEReelMgr : MonoBehaviour
         {
             var slotsLayerObj = new GameObject();
             slotsLayer = slotsLayerObj.AddComponent<HUGEClippingView>();
-            slotsLayer.Init(MachineMgr.DataMgr.ReelClippingCfg());
+            slotsLayer.name = "SlotsLayer";
             var rt = slotsLayerObj.GetComponent<RectTransform>();
             rt.SetParent(gameObject.GetComponent<RectTransform>(), false);
             Canvas canvas = FindObjectOfType<Canvas>();
             float h = canvas.GetComponent<RectTransform>().rect.height;
             float w = canvas.GetComponent<RectTransform>().rect.width;
             rt.localPosition = new Vector3(w * 0.5f, h * 0.5f, 0.0f);
+            slotsLayer.Init(MachineMgr.DataMgr.ReelClippingCfg());
         }
         InitReel();
     }
