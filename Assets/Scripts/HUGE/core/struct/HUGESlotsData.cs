@@ -11,6 +11,12 @@ public class ElementUnit
     public List<string> ami;
 }
 
+[System.Serializable]
+public struct IntList
+{
+    public List<int> arr;
+}
+
 [CreateAssetMenu(fileName = "SlotsConfig", menuName = "Slots Data", order = 51)]
 [System.Serializable]
 public class HUGESlotsData : ScriptableObject
@@ -25,7 +31,7 @@ public class HUGESlotsData : ScriptableObject
     public float viewLineWidth;
     public float viewAnimClipLeftAndRight;
     public float viewAnimClipTopAndBottom;
-    public List<List<int>> initArr;
-    public List<List<int>> rollerArr;
+    public List<IntList> initArr;
+    public List<IntList> rollerArr;
     public List<ElementUnit> elementArr;
 }

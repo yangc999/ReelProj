@@ -45,6 +45,7 @@ public class HUGEReelAmiMgr : MonoBehaviour
                 rt.SetParent(slotsAmiLayer.gameObject.GetComponent<RectTransform>(), false);
             }
         }
+        Debug.Log("ReelAmi Init");
     }
 
     public void CreateSlotsAmiLayer()

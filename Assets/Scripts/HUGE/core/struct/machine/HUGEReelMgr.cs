@@ -56,6 +56,7 @@ public class HUGEReelMgr : MonoBehaviour
             }
             reelArr.Add(reelItemArr);
         }
+        Debug.Log("Reel Init");
     }
 
     public void CreateSlotsLayer()

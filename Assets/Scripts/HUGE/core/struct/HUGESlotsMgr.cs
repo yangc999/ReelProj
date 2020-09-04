@@ -68,6 +68,7 @@ public class HUGESlotsMgr : MonoBehaviour
         var machineLayer = new GameObject();
         machineLayerMgr = machineLayer.AddComponent<HUGEMachineLayerMgr>();
         machineLayerMgr.SlotsCtrl = this;
+        machineLayerMgr.DataMgr = DataMgr;
         var machineLayerRt = machineLayer.GetComponent<RectTransform>();
         machineLayerRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
         machineLayerRt.localPosition = new Vector3(0.0f, 0.0f, 0.0f);

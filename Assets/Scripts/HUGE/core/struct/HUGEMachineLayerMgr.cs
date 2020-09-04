@@ -42,12 +42,14 @@ public class HUGEMachineLayerMgr : MonoBehaviour
 
         var reelMgrObj = new GameObject();
         reelMgr = reelMgrObj.AddComponent<HUGEReelMgr>();
+        reelMgr.MachineMgr = this;
         var reelMgrObjRt = reelMgrObj.GetComponent<RectTransform>();
         reelMgrObjRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
         reelMgr.CreateSlotsLayer();
 
         var reelAmiMgrObj = new GameObject();
         reelAmiMgr = reelAmiMgrObj.AddComponent<HUGEReelAmiMgr>();
+        reelAmiMgr.MachineMgr = this;
         var reelAmiMgrObjRt = reelAmiMgrObj.GetComponent<RectTransform>();
         reelAmiMgrObjRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
         reelAmiMgr.CreateSlotsAmiLayer();

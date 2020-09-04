@@ -36,23 +36,11 @@ public class ReelConfig
     public float RcHeight;
 }
 
-public class HUGEDataMgr : MonoBehaviour
+public class HUGEDataMgr 
 {
     public ConfigData Data;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Init()
+    public HUGEDataMgr()
     {
         Data = new ConfigData();
         BuildSlotsConfigData();
@@ -60,7 +48,7 @@ public class HUGEDataMgr : MonoBehaviour
 
     public void BuildSlotsConfigData()
     {
-        var config = Resources.Load<HUGESlotsData>("");
+        var config = Resources.Load<HUGESlotsData>("SlotsConfig");
         Data.Id = config.slotsId;
         Data.Name = config.slotsName;
         Data.ViewType = config.viewAlignmentType;
@@ -83,8 +71,14 @@ public class HUGEDataMgr : MonoBehaviour
         }
         Data.ViewAnimClipLeftAndRight = config.viewAnimClipLeftAndRight;
         Data.ViewAnimClipTopAndBottom = config.viewAnimClipTopAndBottom;
-        Data.ElementInitList = config.initArr;
-        Data.RollerList = config.rollerArr;
+        foreach (var item in config.initArr)
+        {
+            Data.ElementInitList.Add(item.arr);
+        }
+        foreach (var item in config.rollerArr)
+        {
+            Data.RollerList.Add(item.arr);
+        }
     }
 
     public ReelConfig ReelClippingCfg()

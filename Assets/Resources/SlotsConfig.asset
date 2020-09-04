@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52260ee79e62b4641b42424be9d66fe2, type: 3}
+  m_Name: SlotsConfig
+  m_EditorClassIdentifier: 
+  slotsId: 100000090
+  slotsName: Machine_Vegas777
+  viewAlignmentType: 2
+  rcList: 0300000003000000030000000300000003000000
+  rcWishList: 0300000003000000030000000300000003000000
+  viewWidth: 810
+  viewHeight: 324
+  viewLineWidth: 5
+  viewAnimClipLeftAndRight: 0
+  viewAnimClipTopAndBottom: 0
+  initArr:
+  - arr: 5100000047000000510000005100000051000000510000005100000051000000
+  - arr: 0200000001000000020000000200000001000000010000000200000002000000
+  - arr: 470000000200000047000000020000004700000002000000010000005100000047000000510000004700000002000000
+  - arr: 510000005100000051000000510000000200000033000000330000005100000051000000510000000200000033000000
+  - arr: 010000000200000002000000010000000200000033000000020000000200000002000000010000000200000033000000
+  rollerArr:
+  - arr: 
+  - arr: 
+  - arr: 
+  - arr: 
+  - arr: 
+  elementArr:
+  - id: 1
+    num: 1
+    type: 0
+    ami: []
+  - id: 81
+    num: 1
+    type: 1
+    ami:
+    - ami2
+  - id: 71
+    num: 1
+    type: 3
+    ami:
+    - ami1
+    - ami2
+  - id: 51
+    num: 1
+    type: 2
+    ami:
+    - ami3
+    - ami1
+  - id: 2
+    num: 1
+    type: 0
+    ami: []
