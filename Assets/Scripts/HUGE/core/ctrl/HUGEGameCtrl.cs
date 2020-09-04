@@ -8,6 +8,11 @@ public class HUGEGameCtrl : MonoBehaviour
     private HUGEDataMgr dataMgr;
     private HUGESlotsMgr slotsMgr;
 
+    void Awake()
+    {
+        gameObject.name = "GameCtrl";
+    }
+
     // Start is called before the first frame update
     void Start()
     {
