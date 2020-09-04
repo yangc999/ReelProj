@@ -92,6 +92,7 @@ public class HUGEVtem : MonoBehaviour
         {
             icon.sprite = spr;
             icon.SetNativeSize();
+            Debug.Log(string.Format("Position:{0}, Parent:{1}", icon.gameObject.GetComponent<RectTransform>().position, icon.gameObject.GetComponent<RectTransform>().parent.gameObject.name));
         }
     }
 
