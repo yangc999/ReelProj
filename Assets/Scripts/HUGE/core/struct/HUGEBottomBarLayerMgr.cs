@@ -13,6 +13,7 @@ public class HUGEBottomBarLayerMgr : MonoBehaviour
         rt.anchorMin = new Vector2(0.0f, 0.0f);
         rt.anchorMax = new Vector2(0.0f, 0.0f);
         rt.pivot = new Vector2(0.0f, 0.0f);
+        gameObject.name = "BottomBarLayerMgr";
     }
 
     // Start is called before the first frame update

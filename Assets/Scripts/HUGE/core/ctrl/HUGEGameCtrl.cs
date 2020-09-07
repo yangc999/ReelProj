@@ -34,7 +34,7 @@ public class HUGEGameCtrl : MonoBehaviour
         slotsMgr.DataMgr = dataMgr;
         var rt = slots.GetComponent<RectTransform>();
         rt.SetParent(gameObject.GetComponent<RectTransform>(), false);
-        rt.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+        rt.anchoredPosition = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
     public void DoActionCtrl()

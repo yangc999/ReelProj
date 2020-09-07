@@ -56,9 +56,11 @@ public class HUGEDataMgr
         Data.Col = 5;
         Data.RcList = config.rcList;
         Data.RcListWish = config.rcWishList;
-        Data.CellWidth = config.viewWidth;
-        Data.CellHeight = config.viewHeight;
+        Data.RowWidth = config.viewWidth;
+        Data.ColHeight = config.viewHeight;
         Data.LineWidth = config.viewLineWidth;
+        Data.CellWidth = 158;
+        Data.CellHeight = 108;
         Data.CellMaxNum = 1;
         foreach (var item in config.elementArr)
         {

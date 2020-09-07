@@ -46,10 +46,10 @@ public class HUGEReelMgr : MonoBehaviour
                 {
                     var itemObj = new GameObject();
                     var item = itemObj.AddComponent<HUGEVtem>();
+                    item.Init(unit, MachineMgr.DataMgr.Data.CellWidth, MachineMgr.DataMgr.Data.CellHeight);
                     var rt = itemObj.GetComponent<RectTransform>();
                     rt.SetParent(slotsLayer.gameObject.GetComponent<RectTransform>(), false);
-                    rt.localPosition = new Vector3(gear.HocPosX, gear.HocPosY, 0.0f);
-                    item.Init(unit, MachineMgr.DataMgr.Data.CellWidth, MachineMgr.DataMgr.Data.CellHeight);
+                    rt.anchoredPosition = new Vector3(gear.HocPosX, gear.HocPosY, 0.0f);
                     item.TagIdx = gear.HocTag;
                     item.SetZOrder(gear.HocZOrder);
                     reelItemArr.Add(item);
@@ -72,7 +72,7 @@ public class HUGEReelMgr : MonoBehaviour
             Canvas canvas = FindObjectOfType<Canvas>();
             float h = canvas.GetComponent<RectTransform>().rect.height;
             float w = canvas.GetComponent<RectTransform>().rect.width;
-            rt.localPosition = new Vector3(w * 0.5f, h * 0.5f, 0.0f);
+            rt.anchoredPosition = new Vector3(w * 0.5f, h * 0.5f, 0.0f);
             slotsLayer.Init(MachineMgr.DataMgr.ReelClippingCfg());
         }
         InitReel();
@@ -89,7 +89,7 @@ public class HUGEReelMgr : MonoBehaviour
                 {
                     item.SetZOrder(cell.HocTag);
                     var rt = item.gameObject.GetComponent<RectTransform>();
-                    rt.localPosition = new Vector3(cell.HocPosX, cell.HocPosY, 0.0f);
+                    rt.anchoredPosition = new Vector3(cell.HocPosX, cell.HocPosY, 0.0f);
                     break;
                 }
             }

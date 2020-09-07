@@ -72,14 +72,14 @@ public class HUGESlotsMgr : MonoBehaviour
         machineLayerMgr.DataMgr = DataMgr;
         var machineLayerRt = machineLayer.GetComponent<RectTransform>();
         machineLayerRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
-        machineLayerRt.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+        machineLayerRt.anchoredPosition = new Vector3(0.0f, 0.0f, 0.0f);
 
         var bottomBarLayer = new GameObject();
         bottomBarLayerMgr = bottomBarLayer.AddComponent<HUGEBottomBarLayerMgr>();
         bottomBarLayerMgr.Delegate = this;
         var bottomBarLayerRt = bottomBarLayer.GetComponent<RectTransform>();
         bottomBarLayerRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
-        bottomBarLayerRt.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+        bottomBarLayerRt.anchoredPosition = new Vector3(0.0f, 0.0f, 0.0f);
     }
 
 

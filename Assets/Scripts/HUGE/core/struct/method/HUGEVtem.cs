@@ -81,14 +81,14 @@ public class HUGEVtem : MonoBehaviour
             var imageObj = new GameObject();
             imageObj.name = "icon";
             var imageObjRt = imageObj.AddComponent<RectTransform>();
-            imageObjRt.anchorMin = new Vector2(0.5f, 0.5f);
-            imageObjRt.anchorMax = new Vector2(0.5f, 0.5f);
+            imageObjRt.anchorMin = new Vector2(0.0f, 0.0f);
+            imageObjRt.anchorMax = new Vector2(0.0f, 0.0f);
             imageObjRt.pivot = new Vector2(0.5f, 0.5f);
             imageObjRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
             icon = imageObj.AddComponent<Image>();
         }
         var rt = icon.gameObject.GetComponent<RectTransform>();
-        rt.localPosition = IconPos();
+        rt.anchoredPosition = IconPos();
         var spr = Resources.Load<Sprite>(name);
         Debug.Log(string.Format("Sprite:{0}", spr));
         if (icon && spr)

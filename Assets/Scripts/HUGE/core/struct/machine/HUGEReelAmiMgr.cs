@@ -39,9 +39,9 @@ public class HUGEReelAmiMgr : MonoBehaviour
             {
                 var amiObj = new GameObject();
                 var ami = amiObj.AddComponent<HUGEVtemAmi>();
+                ami.Init(unit, MachineMgr.DataMgr.Data.CellWidth, MachineMgr.DataMgr.Data.CellHeight);
                 var rt = amiObj.GetComponent<RectTransform>();
                 rt.SetParent(slotsAmiLayer.gameObject.GetComponent<RectTransform>(), false);
-                ami.Init(unit, MachineMgr.DataMgr.Data.CellWidth, MachineMgr.DataMgr.Data.CellHeight);
                 ami.Show(false);
                 amiCache.Add(ami);
             }
@@ -61,7 +61,7 @@ public class HUGEReelAmiMgr : MonoBehaviour
             Canvas canvas = FindObjectOfType<Canvas>();
             float h = canvas.GetComponent<RectTransform>().rect.height;
             float w = canvas.GetComponent<RectTransform>().rect.width;
-            rt.localPosition = new Vector3(w*0.5f, h*0.5f, 0.0f);
+            rt.anchoredPosition = new Vector3(w*0.5f, h*0.5f, 0.0f);
             slotsAmiLayer.Init(MachineMgr.DataMgr.ReelClippingCfg(), 50.0f, 50.0f);
         }
         InitAmiReel();

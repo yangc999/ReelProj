@@ -35,6 +35,7 @@ public class HUGEVtemAmi : MonoBehaviour
 
     public void Init(HUGEUnit unit, float nWidth, float nHeight)
     {
+        gameObject.name = "VtemAmi";
         Unit = new HUGEUnit();
         Unit.Set(unit);
         width = nWidth;
@@ -125,7 +126,7 @@ public class HUGEVtemAmi : MonoBehaviour
             rootRt.anchorMax = new Vector2(0.5f, 0.5f);
             rootRt.pivot = new Vector2(0.5f, 0.5f);
             rootRt.SetParent(gameObject.GetComponent<RectTransform>(), false);
-            rootRt.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+            rootRt.anchoredPosition = new Vector3(0.0f, 0.0f, 0.0f);
         }
         if (hasAmi)
         {

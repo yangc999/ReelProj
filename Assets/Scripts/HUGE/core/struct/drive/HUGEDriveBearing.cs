@@ -264,8 +264,19 @@ public class HUGEDriveBearing
         for (int i = 0; i < finalGearN; i++)
         {
             var gear = new HUGEDriveGear();
+            gear.HocTag = i;
+            gear.HocWidth = HocWidth;
+            gear.HocHeight = HocHeight;
+            gear.HocMaxLink = 1;
+            gear.HocPosX = HocWidth * 0.5f;
+            gear.HocPosY = GearY(finalGearN, i);
+            Debug.Log(string.Format("{0}:{1}", i, gear.HocPosY));
+            gear.HocZOrder = i;
+            gear.HocRow = i;
+            gear.HocCol = HocIdx;
             HocGearList.Add(gear);
         }
+        CenterY = HocShowVarGearN * 0.5f * HocHeight;
     }
 
     public void ResetTime()
