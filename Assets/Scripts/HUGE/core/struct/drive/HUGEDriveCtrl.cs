@@ -31,8 +31,8 @@ public class HUGEDriveCtrl
             var j = slotsData.RcList[i];
             var wish = slotsData.RcListWish[i];
             var bearing = new HUGEDriveBearing(this);
-            bearing.InitDearingData(slotsData.ViewType, i, j, wish, slotsData.Row, slotsData.CellMaxNum, slotsData.CellWidth, slotsData.CellHeight);
-            bearing.InitPosAndZorder(i, slotsData.LineWidth);
+            bearing.InitDearingData(slotsData.ViewType, i+1, j, wish, slotsData.Row, slotsData.CellMaxNum, slotsData.CellWidth, slotsData.CellHeight);
+            bearing.InitPosAndZorder(i+1, slotsData.LineWidth);
             bearingList.Add(bearing);
         }
     }

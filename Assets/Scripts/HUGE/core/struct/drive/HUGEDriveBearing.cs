@@ -261,7 +261,7 @@ public class HUGEDriveBearing
     public void CreateGear()
     {
         var finalGearN = HocFinalGearN;
-        for (int i = 0; i < finalGearN; i++)
+        for (int i = 1; i <= finalGearN; i++)
         {
             var gear = new HUGEDriveGear();
             gear.HocTag = i;
