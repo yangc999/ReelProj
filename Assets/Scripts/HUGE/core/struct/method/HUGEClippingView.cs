@@ -33,7 +33,6 @@ public class HUGEClippingView : MonoBehaviour
         rt.anchorMax = new Vector2(0.0f, 0.0f);
         rt.pivot = new Vector2(0.5f, 0.5f);
         ChangeModel(cfg, addWidth, addHeight);
-        Debug.Log("ClippingView Init");
     }
 
     public void ChangeModel(ReelConfig cfg, float addWidth, float addHeight)

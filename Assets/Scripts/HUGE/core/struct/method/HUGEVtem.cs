@@ -45,7 +45,6 @@ public class HUGEVtem : MonoBehaviour
         rt.sizeDelta = size;
         LoadItemIcon();
         SetZOrder(0);
-        Debug.Log("Vtem Init");
     }
 
     public void RefreshItemIcon(HUGEUnit unit)
@@ -73,9 +72,7 @@ public class HUGEVtem : MonoBehaviour
 
     public void LoadItemIcon()
     {
-        Debug.Log(string.Format("Name:{0}", gameObject.name));
         var name = IconName();
-        Debug.Log(string.Format("IconName:{0}", name));
         if (!icon)
         {
             var imageObj = new GameObject();
@@ -90,12 +87,10 @@ public class HUGEVtem : MonoBehaviour
         var rt = icon.gameObject.GetComponent<RectTransform>();
         rt.anchoredPosition = IconPos();
         var spr = Resources.Load<Sprite>(name);
-        Debug.Log(string.Format("Sprite:{0}", spr));
         if (icon && spr)
         {
             icon.sprite = spr;
             icon.SetNativeSize();
-            Debug.Log(string.Format("Position:{0}, Parent:{1}", icon.gameObject.GetComponent<RectTransform>().position, icon.gameObject.GetComponent<RectTransform>().parent.gameObject.name));
         }
     }
 

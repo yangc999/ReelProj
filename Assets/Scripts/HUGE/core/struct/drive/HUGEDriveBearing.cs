@@ -129,7 +129,7 @@ public class HUGEDriveBearing
                 {
                     HocShowVarStopBottom = HocHeight * 0.5f;
                     HocShowVarStopTop = HocHeight * 0.5f + (HocShowVarGearN-1) * HocHeight;
-                    HocWishBottom = HocViewMaxLinkGearN * HocHeight;
+                    HocWishBottom = -HocViewMaxLinkGearN * HocHeight;
                     HocWishTop = (HocFinalGearN - HocViewMaxLinkGearN) * HocHeight;
                 }
                 break;
@@ -270,7 +270,6 @@ public class HUGEDriveBearing
             gear.HocMaxLink = 1;
             gear.HocPosX = HocWidth * 0.5f;
             gear.HocPosY = GearY(finalGearN, i);
-            Debug.Log(string.Format("{0}:{1}", i, gear.HocPosY));
             gear.HocZOrder = i;
             gear.HocRow = i;
             gear.HocCol = HocIdx;
@@ -363,7 +362,7 @@ public class HUGEDriveBearing
             if (Delegate != null)
             {
                 var showList = new List<int>();
-                for (int i = 0; i < HocShowVarGearN; i++)
+                for (int i = 1; i <= HocShowVarGearN; i++)
                 {
                     var tag = (HocStopTag - i + 1 + HocFinalGearN) % HocFinalGearN;
                     if (tag == 0)
@@ -406,6 +405,17 @@ public class HUGEDriveBearing
                 HocStopDownDisAdd = HocStopDownDisAdd + HocDis;
             }
             MoveList(HocDis);
+            if (HocStopCenterGear != null)
+            {
+                if (HocStopCenterGear.HocPosY - (HocShowVarStopBottom + (HocShowVarStopTop - HocShowVarStopBottom) * 0.6f) <= 0)
+                {
+                    HocStopCenterGear = null;
+                    if (Delegate != null)
+                    {
+                        Delegate.StripNextStop(HocIdx);
+                    }
+                }
+            }
             if (HocStopBottomGear != null)
             {
                 if (HocStopBottomGear.HocPosY - HocShowVarStopBottom < 0)

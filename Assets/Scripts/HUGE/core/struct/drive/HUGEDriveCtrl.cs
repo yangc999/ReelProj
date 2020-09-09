@@ -52,7 +52,7 @@ public class HUGEDriveCtrl
         var nextIdx = colIdx + 1;
         if (nextIdx <= 5)
         {
-            var bearing = bearingList[nextIdx];
+            var bearing = bearingList[nextIdx-1];
             bearing.BeforeBearingStopAction(true);
         }
     }

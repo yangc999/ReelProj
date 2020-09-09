@@ -17,7 +17,7 @@ public struct IntList
     public List<int> arr;
 }
 
-[CreateAssetMenu(fileName = "SlotsConfig", menuName = "Slots Data", order = 51)]
+[CreateAssetMenu(fileName = "SlotsConfig", menuName = "Slots Data/Config", order = 51)]
 [System.Serializable]
 public class HUGESlotsData : ScriptableObject
 {

@@ -46,7 +46,6 @@ public class HUGEReelAmiMgr : MonoBehaviour
                 amiCache.Add(ami);
             }
         }
-        Debug.Log("ReelAmi Init");
     }
 
     public void CreateSlotsAmiLayer()
@@ -102,21 +101,21 @@ public class HUGEReelAmiMgr : MonoBehaviour
 
     public void StripBegStop(int colIdx, int stopTag, List<int> showTagList, List<List<int>> trueStrips)
     {
-        var trueList = MachineMgr.DataMgr.Data.TrueStrips[colIdx];
+        var trueList = MachineMgr.DataMgr.Data.TrueStrips[colIdx-1];
         if (amiCache.Count != 0)
         {
 
             for (int i = 0; i < showTagList.Count; i++)
             {
                 int showIdx = showTagList[i];
-                int slotsId = 0;
+                int slotsId = trueList[i];
                 bool inCache = false;
                 foreach (var vtem in amiCache)
                 {
                     if (vtem.Unit.Id == slotsId && vtem.ColIdx == -1 && vtem.RowIdx == -1)
                     {
                         vtem.ColIdx = colIdx;
-                        vtem.RowIdx = i;
+                        vtem.RowIdx = i+1;
                         vtem.ShowTag = showIdx;
                         inCache = true;
                         break;
@@ -130,7 +129,7 @@ public class HUGEReelAmiMgr : MonoBehaviour
                     ami.Init(unit, MachineMgr.DataMgr.Data.CellWidth, MachineMgr.DataMgr.Data.CellHeight);
                     amiCache.Add(ami);
                     ami.ColIdx = colIdx;
-                    ami.RowIdx = i;
+                    ami.RowIdx = i+1;
                     ami.ShowTag = showIdx;
                 }
             }

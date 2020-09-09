@@ -57,7 +57,6 @@ public class HUGEReelMgr : MonoBehaviour
             }
             reelArr.Add(reelItemArr);
         }
-        Debug.Log("Reel Init");
     }
 
     public void CreateSlotsLayer()
@@ -80,7 +79,7 @@ public class HUGEReelMgr : MonoBehaviour
 
     public void StripMove(int colIdx, List<HUGEDriveGear> cellList)
     {
-        var reelItemArr = reelArr[colIdx];
+        var reelItemArr = reelArr[colIdx-1];
         foreach (var item in reelItemArr)
         {
             foreach (var cell in cellList)
@@ -98,19 +97,22 @@ public class HUGEReelMgr : MonoBehaviour
 
     public void StripBegStop(int colIdx, int stopTag, List<int> showTagList)
     {
-        var reelColList = reelArr[colIdx];
-        var trueReelList = MachineMgr.DataMgr.Data.TrueStrips[colIdx];
+        var reelColList = reelArr[colIdx-1];
+        var trueReelList = MachineMgr.DataMgr.Data.TrueStrips[colIdx-1];
         for (int i = 0; i < trueReelList.Count; i++)
         {
-            var trueSlotsId = trueReelList[i];
-            var showTag = showTagList[i];
-            foreach (var vtem in reelColList)
+            if (i < showTagList.Count)
             {
-                if (vtem.TagIdx == showTag)
+                var trueSlotsId = trueReelList[i];
+                var showTag = showTagList[i];
+                foreach (var vtem in reelColList)
                 {
-                    var unit = MachineMgr.DataMgr.ElementById(trueSlotsId);
-                    vtem.RefreshItemIcon(unit);
-                    break;
+                    if (vtem.TagIdx == showTag)
+                    {
+                        var unit = MachineMgr.DataMgr.ElementById(trueSlotsId);
+                        vtem.RefreshItemIcon(unit);
+                        break;
+                    }
                 }
             }
         }

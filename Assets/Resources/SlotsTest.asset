@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2849ef4cb46da4fd9a5927de2f2dffdc, type: 3}
+  m_Name: SlotsTest
+  m_EditorClassIdentifier: Assembly-CSharp::HUGESlotsTest
+  trueStrips:
+  - arr: 020000003300000051000000
+  - arr: 330000005100000047000000
+  - arr: 0100000047000000010000000200000033000000
+  - arr: 4700000001000000330000000200000033000000
+  - arr: 4700000033000000010000005100000047000000

@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(RectTransform), typeof(Image), typeof(Button))]
-public class BaseLayer : MonoBehaviour
+[RequireComponent(typeof(RectTransform), typeof(Image))]
+public class BaseLayer : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
 {
     public HUGEBottomBarLayerMgr Delegate { get; set; }
 
@@ -15,9 +17,7 @@ public class BaseLayer : MonoBehaviour
         rt.anchorMin = new Vector2(0.0f, 0.0f);
         rt.anchorMax = new Vector2(0.0f, 0.0f);
         rt.pivot = new Vector2(0.5f, 0.5f);
-        var btn = gameObject.GetComponent<Button>();
-        btn.interactable = true;
-        btn.targetGraphic = gameObject.GetComponent<Image>();
+        var triggle = gameObject.GetComponent<EventTrigger>();
     }
 
     // Start is called before the first frame update
@@ -32,23 +32,27 @@ public class BaseLayer : MonoBehaviour
         
     }
 
-    void OnMouseDown()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("MouseDown");
+        if (Delegate)
+        {
+            Delegate.OnTouchHandler("began");
+        }
     }
 
-    void OnMouseUp()
+    public void OnPointerUp(PointerEventData eventData)
     {
-        Debug.Log("MouseUp");
+        if (Delegate)
+        {
+            Delegate.OnTouchHandler("ended");
+        }
     }
 
-    void OnMouseEnter()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("MouseEnter");
-    }
-
-    void OnMouseExit()
-    {
-        Debug.Log("MouseExit");
+        if (Delegate)
+        {
+            //Delegate.OnTouchHandler("cancelled");
+        }
     }
 }

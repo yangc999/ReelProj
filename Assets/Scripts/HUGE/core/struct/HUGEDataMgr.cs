@@ -81,6 +81,11 @@ public class HUGEDataMgr
         {
             Data.RollerList.Add(item.arr);
         }
+        var test = Resources.Load<HUGESlotsTest>("SlotsTest");
+        foreach (var item in test.trueStrips)
+        {
+            Data.TrueStrips.Add(item.arr);
+        }
     }
 
     public ReelConfig ReelClippingCfg()
